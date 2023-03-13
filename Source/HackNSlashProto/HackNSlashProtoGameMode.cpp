@@ -5,9 +5,9 @@
 #include <imgui.h>
 
 #include "HackNSlashProto.h"
-#include "Core/MVVM/MVVMSystem.h"
 #include "Core/System/ErrorDefine.h"
 #include "Core/System/ImGuiHelpers.h"
+#include "Core/System/IUpdatableSubSystem.h"
 #include "Kismet/GameplayStatics.h"
 
 AHackNSlashProtoGameMode::AHackNSlashProtoGameMode()
@@ -20,17 +20,17 @@ void AHackNSlashProtoGameMode::InitGame(const FString& MapName, const FString& O
 {
 	Super::InitGame(MapName, Options, ErrorMessage);
 
-	const auto MVVMSystem = UMvvmSystem::GetUMvvmSystem(GetOuter());
+	/*const auto MVVMSystem = UMvvmSystem::GetUMvvmSystem(GetOuter());
 	if(!MVVMSystem)
 	{
 		CORE_LOG(LogHackNSlashProto, TEXT("No MvvmSystem Found"));
 		return;
 	}
 
-	Systems.Add(MVVMSystem);
+	Systems.Add(MVVMSystem);*/
 
 #if WITH_IMGUI
-	ImGuiWindowsOpened.Add(MVVMSystem->GetSystemName());
+	//ImGuiWindowsOpened.Add(MVVMSystem->GetSystemName());
 #endif
 }
 
